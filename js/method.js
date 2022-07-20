@@ -46,20 +46,14 @@ function kiemTraTaiKhoan(value, id, name, minLength, maxLength) {
 // kiểm ttra tài khoản không được trùng nhau
 function kiemTraTaiKhoanTrungNhau(value, id, name, arrMang) {
     console.log(arrMang)
-    for (index = 0; index <= arrMang.length; index++) {
-        if (arrMang.length >= 1) {
-            if (arrMang[index].taiKhoan === value) {
+    for (index = 0; index < arrMang.length; index++) {
+        if (value === arrMang[index].taiKhoan) {
                 document.querySelector(id).innerHTML = name + 'đã bị trùng !';
                 return false
-            }
-            else if (arrMang[index].taiKhoan !== value) {
-                document.querySelector(id).innerHTML = '';
-                return true
-            }
-        }else{
-            return true
-        } 
+        }         
     }
+    return true
+
 }
 /** Tạo hàm regex để chứa các trường hợp cần so sánh  
  * @param {*} value chính là giá trị của phần tử lấy từ object khai báo ở phần method
@@ -203,16 +197,34 @@ function kiemTraPhanLoai(id, arrMangNhanVien) {
     return arrMangPhanLoai;
 }
  // hàm reset 
-function resetForm(){
-    document.querySelector('#tknv').value =""
-    document.querySelector('#name').value =""
-    document.querySelector('#email').value =""
-    document.querySelector('#password').value =""
-    document.querySelector('#luongCB').value =""
-    document.querySelector('#chucvu').value ="0"
-    document.querySelector('#gioLam').value =""
-    document.querySelector('#datepicker').value =""
-   
+ function resetForm() {
+    document.querySelector('#tknv').value = ""
+    document.querySelector('#name').value = ""
+    document.querySelector('#email').value = ""
+    document.querySelector('#password').value = ""
+    document.querySelector('#luongCB').value = ""
+    document.querySelector('#chucvu').value = "0"
+    document.querySelector('#gioLam').value = ""
+    document.querySelector('#datepicker').value = ""
+    document.querySelector('#error_taikhoan').innerHTML=""
+    document.querySelector('#error_taikhoan1').innerHTML=""
+    document.querySelector('#error_taikhoan2').innerHTML=""
+    document.querySelector('#error_hoten').innerHTML=""
+    document.querySelector('#error_hoten1').innerHTML=""
+    document.querySelector('#error_email').innerHTML=""
+    document.querySelector('#error_email1').innerHTML=""
+    document.querySelector('#error_matkhau').innerHTML=""
+    document.querySelector('#error_matkhau1').innerHTML=""
+    document.querySelector('#error_luongcoban').innerHTML=""
+    document.querySelector('#error_luongcoban1').innerHTML=""
+    document.querySelector('#error_luongcoban2').innerHTML=""
+    document.querySelector('#error_giolam').innerHTML=""
+    document.querySelector('#error_giolam1').innerHTML=""
+    document.querySelector('#error_ngaylam').innerHTML=""
+    document.querySelector('#error_ngaylam1').innerHTML=""
+    document.querySelector('#error_giolam2').innerHTML=""
+    document.querySelector('#error_chucvu').innerHTML=""
+
 }
 
 // kiểm tra tất cả là số
